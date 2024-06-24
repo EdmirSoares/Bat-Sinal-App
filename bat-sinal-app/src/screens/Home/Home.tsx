@@ -7,6 +7,9 @@ const Home = () => {
 	const navigation = useNavigation();
 	return (
 		<View style={styles.Container}>
+			<Text style={styles.logoText}>
+				.<Text style={styles.logoTextWhite}>The Signal</Text>
+			</Text>
 			<TouchableOpacity
 				onPress={() => navigation.navigate("SingIn")}
 				style={styles.btnArea}

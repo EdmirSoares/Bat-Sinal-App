@@ -27,6 +27,18 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         marginLeft: 8,
     },
+    logoText: {
+        color: "#1DAC92",
+        fontSize: 48,
+        fontWeight: "800",
+        marginBottom: 16,
+    },
+    logoTextWhite: {
+        color: "#fff",
+        fontSize: 32,
+        fontWeight: "800",
+        marginBottom: 16,
+    },
     labelText: {
         color: "#FFF",
         fontSize: 12,

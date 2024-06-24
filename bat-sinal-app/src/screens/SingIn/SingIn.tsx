@@ -52,6 +52,9 @@ const SingIn = () => {
 					</TouchableOpacity>
 				</View>
 				<View style={styles.inputContainer}>
+					<Text style={styles.logoText}>
+						.<Text style={styles.logoTextWhite}>The Signal</Text>
+					</Text>
 					<View style={styles.inputItens}>
 						<Text style={styles.labelText}>Name</Text>
 						<TextInput
