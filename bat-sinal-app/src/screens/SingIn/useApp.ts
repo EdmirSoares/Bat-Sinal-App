@@ -13,7 +13,7 @@ export default function useApp() {
 		try {
 			if (
 				contactNumber === "" ||
-				contactNumber.length < 15 ||
+				contactNumber.length < 14 ||
 				name === "" ||
 				adress === "" ||
 				textDescription === ""

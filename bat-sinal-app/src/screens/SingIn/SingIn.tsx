@@ -65,6 +65,8 @@ const SingIn = () => {
 						<Text style={styles.labelText}>Name</Text>
 						<TextInput
 							value={name}
+							placeholder="What's your name?"
+							placeholderTextColor={"#6e7f98"}
 							onChangeText={(value) => setName(value)}
 							onFocus={() => setFocused("name")}
 							onBlur={() => setFocused("")}
@@ -80,8 +82,10 @@ const SingIn = () => {
 						<Text style={styles.labelText}>Contact Number</Text>
 						<MaskInput
 							value={contactNumber}
+							placeholder="How can we call you?"
+							placeholderTextColor={"#6e7f98"}
 							keyboardType={"numeric"}
-							mask={Masks.BRL_PHONE}
+							mask={Masks.USA_PHONE}
 							style={[
 								styles.textInput,
 								focused === "contactNumber"
@@ -97,6 +101,8 @@ const SingIn = () => {
 						<Text style={styles.labelText}>Adress</Text>
 						<TextInput
 							value={adress}
+							placeholder="Where do you live?"
+							placeholderTextColor={"#6e7f98"}
 							style={[
 								styles.textInput,
 								focused === "adress"
@@ -112,6 +118,8 @@ const SingIn = () => {
 						<Text style={styles.labelText}>Your message</Text>
 						<TextInput
 							value={textDescription}
+							placeholder="Write your message here..."
+							placeholderTextColor={"#6e7f98"}
 							textAlignVertical={"top"}
 							multiline={true}
 							onFocus={() => setFocused("textDescription")}
@@ -145,11 +153,11 @@ const SingIn = () => {
 					<View style={styles.modalContainer}>
 						<View style={styles.modalContent}>
 							<Text style={styles.modalTextHeader}>
-								Dados Enviados!
+								Mensage sent successfully!
 							</Text>
 							<View style={styles.modalTextContainer}>
 								<Text style={styles.modalTitleText}>
-									Name:{" "}
+									To:{" "}
 									<Text style={styles.modalText}>
 										{data.name}
 									</Text>

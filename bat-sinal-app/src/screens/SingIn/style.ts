@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		borderRadius: 12,
 		borderColor: "#1DAC92",
-		gap: 8,
 		padding: 24,
 	},
 	modalTextContainer: {
