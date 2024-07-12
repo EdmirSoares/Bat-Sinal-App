@@ -8,7 +8,6 @@ import {
 	ScrollView,
 	TextInput,
 	Modal,
-	Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MaskInput, { Masks } from "react-native-mask-input";
@@ -32,6 +31,8 @@ const SingIn = () => {
 		setTextDescription,
 		handleData,
 		setModalVisible,
+		focused,
+		setFocused,
 	} = useApp();
 
 	return (
@@ -47,20 +48,31 @@ const SingIn = () => {
 						style={styles.navigationItems}
 						onPress={() => navigation.goBack()}
 					>
-						<Ionicons name="chevron-back" size={24} color="white" />
+						<Ionicons
+							name="chevron-back"
+							size={24}
+							color="#1DAC92"
+						/>
 						<Text style={styles.baseText}>go back</Text>
 					</TouchableOpacity>
 				</View>
 				<View style={styles.inputContainer}>
 					<Text style={styles.logoText}>
-						.<Text style={styles.logoTextWhite}>The Signal</Text>
+						.<Text style={styles.logoTextWhite}>SignalWave</Text>
 					</Text>
 					<View style={styles.inputItens}>
 						<Text style={styles.labelText}>Name</Text>
 						<TextInput
 							value={name}
 							onChangeText={(value) => setName(value)}
-							style={styles.textInput}
+							onFocus={() => setFocused("name")}
+							onBlur={() => setFocused("")}
+							style={[
+								styles.textInput,
+								focused === "name"
+									? { borderWidth: 1 }
+									: { borderWidth: 0 },
+							]}
 						/>
 					</View>
 					<View style={styles.inputItens}>
@@ -69,7 +81,14 @@ const SingIn = () => {
 							value={contactNumber}
 							keyboardType={"numeric"}
 							mask={Masks.BRL_PHONE}
-							style={styles.textInput}
+							style={[
+								styles.textInput,
+								focused === "contactNumber"
+									? { borderWidth: 1 }
+									: { borderWidth: 0 },
+							]}
+							onFocus={() => setFocused("contactNumber")}
+							onBlur={() => setFocused("")}
 							onChangeText={(value) => setContactNumber(value)}
 						/>
 					</View>
@@ -77,18 +96,32 @@ const SingIn = () => {
 						<Text style={styles.labelText}>Adress</Text>
 						<TextInput
 							value={adress}
+							style={[
+								styles.textInput,
+								focused === "adress"
+									? { borderWidth: 1 }
+									: { borderWidth: 0 },
+							]}
+							onFocus={() => setFocused("adress")}
+							onBlur={() => setFocused("")}
 							onChangeText={(value) => setAdress(value)}
-							style={styles.textInput}
 						/>
 					</View>
 					<View style={styles.inputItens}>
 						<Text style={styles.labelText}>Your message</Text>
 						<TextInput
 							value={textDescription}
-							onChangeText={(value) => setTextDescription(value)}
 							textAlignVertical={"top"}
 							multiline={true}
-							style={styles.textDescriptionInput}
+							onFocus={() => setFocused("textDescription")}
+							onBlur={() => setFocused("")}
+							onChangeText={(value) => setTextDescription(value)}
+							style={[
+								styles.textDescriptionInput,
+								focused === "textDescription"
+									? { borderWidth: 1 }
+									: { borderWidth: 0 },
+							]}
 						/>
 					</View>
 					<TouchableOpacity
@@ -115,17 +148,18 @@ const SingIn = () => {
 						>
 							<Ionicons name="close" size={24} color="#1DAC92" />
 						</TouchableOpacity>
-						<View style={styles.inputContainer}>
-							<Text style={styles.baseText}>
-								Name: {data.name}
+						<View style={styles.modalContent}>
+							<Text style={styles.modalText}>
+								Name:{" "}
+								<Text style={styles.baseText}>{data.name}</Text>
 							</Text>
-							<Text style={styles.baseText}>
+							<Text style={styles.modalText}>
 								Contact Number: {data.contactNumber}
 							</Text>
-							<Text style={styles.baseText}>
+							<Text style={styles.modalText}>
 								Adress: {data.adress}
 							</Text>
-							<Text style={styles.baseText}>
+							<Text style={styles.modalText}>
 								Message: {data.textDescription}
 							</Text>
 						</View>

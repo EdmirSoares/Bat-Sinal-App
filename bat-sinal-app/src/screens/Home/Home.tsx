@@ -8,13 +8,13 @@ const Home = () => {
 	return (
 		<View style={styles.Container}>
 			<Text style={styles.logoText}>
-				.<Text style={styles.logoTextWhite}>The Signal</Text>
+				.<Text style={styles.logoTextWhite}>SignalWave</Text>
 			</Text>
 			<TouchableOpacity
 				onPress={() => navigation.navigate("SingIn")}
 				style={styles.btnArea}
 			>
-				<Text style={styles.btnText}>Call Signal</Text>
+				<Text style={styles.btnText}>Make a Call</Text>
 			</TouchableOpacity>
 		</View>
 	);

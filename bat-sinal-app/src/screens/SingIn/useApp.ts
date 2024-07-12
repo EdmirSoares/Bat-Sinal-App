@@ -1,33 +1,37 @@
 import { useState } from "react";
 
-
 export default function useApp() {
-
-	const [contactNumber, setContactNumber] = useState('');
-	const [name, setName] = useState('');
-	const [adress, setAdress] = useState('');
-	const [textDescription, setTextDescription] = useState('');
+	const [contactNumber, setContactNumber] = useState("");
+	const [name, setName] = useState("");
+	const [adress, setAdress] = useState("");
+	const [textDescription, setTextDescription] = useState("");
 	const [modalVisible, setModalVisible] = useState(false);
+	const [focused, setFocused] = useState("");
 	const [data, setData] = useState({} as any);
-	
-	const handleData = async()=> {
-		try {	
-			if (contactNumber === '' || contactNumber.length < 15 || name === '' || adress === '' || textDescription === '') {
-				return alert('Fill in all fields');
-			}else{
+
+	const handleData = async () => {
+		try {
+			if (
+				contactNumber === "" ||
+				contactNumber.length < 15 ||
+				name === "" ||
+				adress === "" ||
+				textDescription === ""
+			) {
+				return alert("Fill in all fields");
+			} else {
 				setData({
 					contactNumber,
 					name,
 					adress,
 					textDescription,
-				
-				})
+				});
 				setModalVisible(true);
 			}
 		} catch (error) {
-			alert('Error');
+			alert("Error");
 		}
-	}
+	};
 
 	return {
 		contactNumber,
@@ -41,7 +45,8 @@ export default function useApp() {
 		handleData,
 		modalVisible,
 		setModalVisible,
-		data
-	}
+		focused,
+		setFocused,
+		data,
+	};
 }
-
