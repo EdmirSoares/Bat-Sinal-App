@@ -30,6 +30,7 @@ const SingIn = () => {
 		setContactNumber,
 		setTextDescription,
 		handleData,
+		onCloseModal,
 		setModalVisible,
 		focused,
 		setFocused,
@@ -142,26 +143,46 @@ const SingIn = () => {
 					}}
 				>
 					<View style={styles.modalContainer}>
-						<TouchableOpacity
-							onPress={() => setModalVisible(!modalVisible)}
-							style={{ alignSelf: "flex-end" }}
-						>
-							<Ionicons name="close" size={24} color="#1DAC92" />
-						</TouchableOpacity>
 						<View style={styles.modalContent}>
-							<Text style={styles.modalText}>
-								Name:{" "}
-								<Text style={styles.baseText}>{data.name}</Text>
+							<Text style={styles.modalTextHeader}>
+								Dados Enviados!
 							</Text>
-							<Text style={styles.modalText}>
-								Contact Number: {data.contactNumber}
-							</Text>
-							<Text style={styles.modalText}>
-								Adress: {data.adress}
-							</Text>
-							<Text style={styles.modalText}>
-								Message: {data.textDescription}
-							</Text>
+							<View style={styles.modalTextContainer}>
+								<Text style={styles.modalTitleText}>
+									Name:{" "}
+									<Text style={styles.modalText}>
+										{data.name}
+									</Text>
+								</Text>
+								<Text style={styles.modalTitleText}>
+									Contact Number:{" "}
+									<Text style={styles.modalText}>
+										{data.contactNumber}
+									</Text>
+								</Text>
+								<Text style={styles.modalTitleText}>
+									Adress:{" "}
+									<Text style={styles.modalText}>
+										{data.adress}
+									</Text>
+								</Text>
+								<Text
+									style={styles.modalTitleText}
+									numberOfLines={3}
+									ellipsizeMode="tail"
+								>
+									Message:{" "}
+									<Text style={styles.modalText}>
+										{data.textDescription}
+									</Text>
+								</Text>
+							</View>
+							<TouchableOpacity
+								style={styles.btnAreaModal}
+								onPress={() => onCloseModal()}
+							>
+								<Text style={styles.btnText}>Close</Text>
+							</TouchableOpacity>
 						</View>
 					</View>
 				</Modal>

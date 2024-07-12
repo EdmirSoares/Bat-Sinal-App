@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
 	Container: {
@@ -91,21 +90,46 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "rgba(18, 24, 38, 1)",
 		justifyContent: "center",
-		padding: 32,
+		paddingHorizontal: 32,
 		opacity: 0.9,
 	},
 	modalContent: {
 		height: 350,
-		justifyContent: "center",
-		backgroundColor: "#334155",
-		borderRadius: 24,
-		padding: 20,
+		justifyContent: "space-between",
+		backgroundColor: "#fff",
+		borderRadius: 12,
+		borderColor: "#1DAC92",
+		gap: 8,
+		padding: 24,
 	},
-	modalText: {
+	modalTextContainer: {
+		flex: 1,
+		justifyContent: "space-between",
+		paddingVertical: 24,
+	},
+	modalTextHeader: {
+		color: "#334155",
+		fontSize: 24,
+		fontWeight: "700",
+		textAlign: "center",
+	},
+	modalTitleText: {
 		color: "#1DAC92",
 		fontSize: 14,
-		fontWeight: "800",
-		marginBottom: 16,
+		fontWeight: "700",
+	},
+	modalText: {
+		color: "#334155",
+		fontSize: 14,
+		fontWeight: "500",
+	},
+	btnAreaModal: {
+		backgroundColor: "#1DAC92",
+		padding: 10,
+		width: "100%",
+		borderRadius: 5,
+		flexDirection: "row",
+		justifyContent: "center",
 	},
 });
 

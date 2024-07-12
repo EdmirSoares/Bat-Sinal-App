@@ -32,6 +32,13 @@ export default function useApp() {
 			alert("Error");
 		}
 	};
+	function onCloseModal() {
+		setModalVisible(false);
+		setName("");
+		setAdress("");
+		setContactNumber("");
+		setTextDescription("");
+	}
 
 	return {
 		contactNumber,
@@ -43,6 +50,7 @@ export default function useApp() {
 		textDescription,
 		setTextDescription,
 		handleData,
+		onCloseModal,
 		modalVisible,
 		setModalVisible,
 		focused,
